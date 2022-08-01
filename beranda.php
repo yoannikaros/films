@@ -143,19 +143,19 @@
         <div class="d-flex gap-4 flex-wrap">
        
           <div class="product-card">
-           
+           <center>
           <img
               src="<?php echo $data['image'] ?>"
               alt="Nike Red"
               width="260"
               height="180"
             />
-
+            </center>
             <div class="product-detail pt-3">
               <div>
-                <p class="label-detail mb-1"><?php echo $data['sutradara'] ?></p>
-                
+    
                 <p class="title-detail"><?php echo $data['judul'] ?></p>
+                <p class="label-detail mb-1"><?php echo $data['sutradara'] ?></p>
                 
               </div>
           
