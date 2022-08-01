@@ -45,7 +45,7 @@ if( !isset($_SESSION['username']) ){
 <div class="jumbotron jumbotron-fluid bg-light" style="height:90vh">
   <div class="container">
     <h1 class="display-4 text-center mt-4">DASHBOARD</h1>
-    <p class="lead text-center">LOGIN OR REGISTER SUCCESSFULLY ):</p>
+    <p class="lead text-center">LOGIN SUCCESSFULLY ):</p>
   </div>
 </div>
 

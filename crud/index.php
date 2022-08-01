@@ -106,7 +106,7 @@ if( !isset($_SESSION['username']) ){
         </button>
         <ul class="navbar-nav ml-auto pt-2 pb-2">
             <li class="nav-item">
-                <a href="index.php" class="nav-link text-light">Home</a>
+                <a href="../index.php" class="nav-link text-light">Home</a>
             </li>
             <li class="nav-item ml-4">
                 <a href="logout.php" class="nav-link text-light"> Log Out </a>
