@@ -215,16 +215,6 @@ if( !isset($_SESSION['username']) ){
 		<hr>
 
 
-		<?php
-		//fungsi buatRupiah
-		function buatRupiah($angka)
-		{
-			$hasil = "Rp. " . number_format($angka, 0, ',', '.');
-			return $hasil;
-		}
-
-		?>
-
 		<div>
 			<br>
 			<table class="table table-striped table-bordered">
@@ -233,7 +223,7 @@ if( !isset($_SESSION['username']) ){
 						<!-- <th>Sr#</th> -->
 						<th>Judul</th>
 						<th>Sutradara</th>
-						<th>Rilis</th>
+						<th>Create at</th>
 
 						<!-- <th>ISI PERDUS</th> -->
 					
