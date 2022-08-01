@@ -6,7 +6,7 @@ session_start();
 //mengecek username pada session
 if( !isset($_SESSION['username']) ){
   $_SESSION['msg'] = 'anda harus login untuk mengakses halaman ini';
-  header('Location: login.php');
+  header('Location: beranda.php');
 }
 
 ?>
@@ -41,7 +41,7 @@ if( !isset($_SESSION['username']) ){
 </nav>
 <div class="jumbotron jumbotron-fluid bg-light" style="height:90vh">
   <div class="container">
-    <h1 class="display-4 text-center mt-4">HOME</h1>
+    <h1 class="display-4 text-center mt-4">DASHBOARD</h1>
     <p class="lead text-center">LOGIN OR REGISTER SUCCESSFULLY ):</p>
   </div>
 </div>

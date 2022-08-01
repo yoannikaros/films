@@ -89,9 +89,7 @@ if( isset($_POST['submit']) ){
                     </div>
                  
                     <button type="submit" name="submit" class="btn btn-primary btn-block">Sign In</button>
-                    <div class="form-footer mt-2">
-                        <p> Belum punya account? <a href="register.php">Register</a></p>
-                    </div>
+            
                 </form>
             </section>
             </section>
