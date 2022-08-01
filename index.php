@@ -33,6 +33,9 @@ if( !isset($_SESSION['username']) ){
             <li class="nav-item">
                 <a href="index.php" class="nav-link text-light">Home</a>
             </li>
+            <li class="nav-item">
+                <a href="crud/index.php" class="nav-link text-light">Crud</a>
+            </li>
             <li class="nav-item ml-4">
                 <a href="logout.php" class="nav-link text-light"> Log Out </a>
             </li>
