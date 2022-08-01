@@ -9,7 +9,7 @@
     <meta name="description" content="Dashboard for ShoSo Marketplace" />
     <meta name="author" content="Rachma | @rachmadzii" />
 
-    <title>ShoSo Marketplace - Dashboard</title>
+    <title>Film Yoan Nikaros</title>
 
     <link rel="stylesheet" href="./css/styles.css" />
     <link
