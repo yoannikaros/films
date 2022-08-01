@@ -4,68 +4,45 @@ if (isset($_REQUEST['submit']) and $_REQUEST['submit'] != "") {
 
 	extract($_REQUEST);
 
-	if ($barang == "") {
+	if ($judul == "") {
 
 		header('location:' . $_SERVER['PHP_SELF'] . '?msg=un');
 
 		exit;
-	} elseif ($jenis == "") {
+	} elseif ($deskripsi == "") {
 
 		header('location:' . $_SERVER['PHP_SELF'] . '?msg=ue');
 
 		exit;
-	} elseif ($hargaumum == "") {
+	} elseif ($image == "") {
 
 		header('location:' . $_SERVER['PHP_SELF'] . '?msg=up');
 
 		exit;
-	} elseif ($hargagrosir == "") {
+	}  elseif ($sutradara == "") {
 
 		header('location:' . $_SERVER['PHP_SELF'] . '?msg=ue');
 
 		exit;
-	} elseif ($barcode == "") {
-
-		header('location:' . $_SERVER['PHP_SELF'] . '?msg=ue');
-
-		exit;
-	} elseif ($idsatuan == "") {
-
-		header('location:' . $_SERVER['PHP_SELF'] . '?msg=ue');
-
-		exit;
-	} elseif ($id == "") {
-
-		header('location:' . $_SERVER['PHP_SELF'] . '?msg=ue');
-
-		exit;
-	} elseif ($qty == "") {
-
-		header('location:' . $_SERVER['PHP_SELF'] . '?msg=ue');
-
-		exit;
-	} else {
+	}  else {
 
 
 
-		$userCount	=	$db->getQueryCount('barang', 'kode_item');
+		$userCount	=	$db->getQueryCount('content', 'id');
 
 		if ($userCount[0]['total'] < 100000) {
 
 			$data	=	array(
 
-				'barang' => $barang,
-				'jenis' => $jenis,
-				'hargaumum' => $hargaumum,
-				'hargagrosir' => $hargagrosir,
-				'barcode' => $barcode,
-				'idsatuan' => $idsatuan,
-				'id' => $id,
-				'qty' => $qty,
+				'judul' => $judul,
+				'deskripsi' => $deskripsi,
+				'image' => $image,
+				
+				'sutradara' => $sutradara,
 
 			);
 
-			$insert	=	$db->insert('barang', $data);
+			$insert	=	$db->insert('content', $data);
 
 			if ($insert) {
 
@@ -101,7 +78,7 @@ if (isset($_REQUEST['submit']) and $_REQUEST['submit'] != "") {
 	<meta name="description" content="Address Book">
 	<meta name="keywords" content="toko lina">
 	<meta name="robots" content="index,follow">
-	<title>Tambah Barang</title>
+	<title>Tambah film</title>
 	<!-- Menyisipkan CSS -->
 	<link rel="stylesheet" href="../source/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="../source/css/bootstrap.css" />
@@ -151,7 +128,7 @@ if (isset($_REQUEST['submit']) and $_REQUEST['submit'] != "") {
 	</style>
 
 	<div class="header">
-		<h3>Tambah Barang Baru</h3>
+		<h3>Tambah film Baru</h3>
 	</div>
 
 
@@ -191,58 +168,22 @@ if (isset($_REQUEST['submit']) and $_REQUEST['submit'] != "") {
 
 
 				<div class="col-sm-60">
-
-
 					<form method="post">
-
 						<div class="form-group">
 
-							<label>Nama Barang <span class="text-danger">*</span></label>
+							<label>Judul film <span class="text-danger">*</span></label>
 
-							<input type="text" name="barang" id="barang" class="form-control" placeholder="Masukan nama barang" required>
+							<input type="text" name="judul" id="judul" class="form-control" placeholder="Masukan judul film" required>
 
 						</div>
 
 						<div class="form-group">
 
-							<label>Satuan Barang <span class="text-danger">*</span></label>
+							<label>deskripsi <span class="text-danger">*</span></label>
+<!-- 
+							<input type="text" name="deskripsi" id="deskripsi" class="form-control" placeholder="Masukan deskripsi" required> -->
 
-							<!-- <input type="text" name="jenis" id="jenis" class="form-control" placeholder="Masukan Satuan" required> -->
-
-							<select class="form-select" name="jenis" id="jenis">
-								<option value="PCS">PCS</option>
-								<option value="BKS">BKS</option>
-								<option value="Slop">Slop</option>
-								<option value="PAK">Pak</option>
-								<option value="/2 Pak">/2 Pak</option>
-								<option value="LEMBAR">LEMBAR</option>
-								<option value="RENCENG">RENCENG</option>
-								<option value="BUNGKUS">BUNGKUS</option>
-								<option value="IKET">IKET</option>
-								<option value="0.5">0.5</option>
-								<option value="1/4">1/4</option>
-								<option value="GLS">GLS</option>
-								<option value="/4">/4</option>
-								<option value="/2">/2</option>
-								<option value="KG">KG</option>
-								<option value="/2 KG">/2 KG</option>
-								<option value="1/2 RTG">1/2 RTG</option>
-								<option value="1 KG">1 KG</option>
-								<option value="1 ONS">1 ONS</option>
-								<option value="1/2 ONS">1/2 ONS</option>
-								<option value="1 GRAM">1 GRAM</option>
-								<option value="BOX">BOX</option>
-								<option value="DUS">DUS</option>
-								<option value="RTG">RTG</option>
-								<option value="KARUNG">KARUNG</option>
-								<option value="TIMBANGAN">TIMBANGAN</option>
-								<option value="Bal">Bal</option>
-								<option value="Slop">Slop</option>
-								<option value="SLOP">SLOP</option>
-							</select>
-
-
-
+							<textarea class="form-control" name="deskripsi" id="deskripsi" rows="4" cols="50"></textarea>
 
 
 
@@ -250,57 +191,24 @@ if (isset($_REQUEST['submit']) and $_REQUEST['submit'] != "") {
 
 						<div class="form-group">
 
-							<label>Harga Umum <span class="text-danger">*</span></label>
+							<label>link image <span class="text-danger">*</span></label>
 
-							<input type="text" name="hargaumum" id="hargaumum" class="form-control" placeholder="Masukan harga umum" required>
-
-						</div>
-
-						<div class="form-group">
-
-							<label>Harga Grosir <span class="text-danger">*</span></label>
-
-							<input type="text" name="hargagrosir" id="hargagrosir" class="form-control" placeholder="Masukan harga grosir" required>
-
-						</div>
-
-						<div class="form-group">
-
-							<label>Isi Perdus <span class="text-danger">*</span></label>
-
-							<input type="text" name="idsatuan" id="idsatuan" class="form-control" placeholder="Masukan idsatuan" value="1" required>
+							<input type="text" name="image" id="image" class="form-control" placeholder="Masukan link image" required>
 
 						</div>
 
 
 						<div class="form-group">
 
-							<label>Abaikan <span class="text-danger">*</span></label>
+							<label>Sutradara <span class="text-danger">*</span></label>
 
-							<input readonly type="text" name="barcode" id="barcode" class="form-control" placeholder="Masukan barcode" value="9999" required>
-
-						</div>
-
-
-						<div class="form-group">
-
-							<label>Abaikan <span class="text-danger">*</span></label>
-
-							<input readonly type="text" name="id" id="id" class="form-control" placeholder="Masukan id" value="2" required>
+							<input type="text" name="sutradara" id="sutradara" class="form-control" placeholder="Masukan sutradara" value="1" required>
 
 						</div>
 
 						<div class="form-group">
 
-							<label>Abaikan <span class="text-danger">*</span></label>
-
-							<input readonly type="text" name="qty" id="qty" class="form-control" placeholder="Masukan qty" value="9999" required>
-
-						</div>
-
-						<div class="form-group">
-
-							<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary"><i class="fa fa-fw fa-plus-circle"></i> Tambah Barang</button>
+							<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary"><i class="fa fa-fw fa-plus-circle"></i> Tambah Film</button>
 
 						</div>
 

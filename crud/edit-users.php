@@ -2,51 +2,35 @@
 
 if (isset($_REQUEST['editId']) and $_REQUEST['editId'] != "") {
 
-	$row	=	$db->getAllRecords('barang', '*', ' AND kode_item="' . $_REQUEST['editId'] . '"');
+	$row	=	$db->getAllRecords('content', '*', ' AND id="' . $_REQUEST['editId'] . '"');
 }
-
 
 
 if (isset($_REQUEST['submit']) and $_REQUEST['submit'] != "") {
 
 	extract($_REQUEST);
 
-	if ($barang == "") {
+	if ($judul == "") {
 
 		header('location:' . $_SERVER['PHP_SELF'] . '?msg=un&editId=' . $_REQUEST['editId']);
 
 		exit;
-	} elseif ($jenis == "") {
+	} elseif ($deskripsi == "") {
 
 		header('location:' . $_SERVER['PHP_SELF'] . '?msg=ue&editId=' . $_REQUEST['editId']);
 
 		exit;
-	} elseif ($hargaumum == "") {
+	} elseif ($image == "") {
 
 		header('location:' . $_SERVER['PHP_SELF'] . '?msg=up&editId=' . $_REQUEST['editId']);
 
 		exit;
-	} elseif ($hargagrosir == "") {
+	} elseif ($rilis == "") {
 
 		header('location:' . $_SERVER['PHP_SELF'] . '?msg=up&editId=' . $_REQUEST['editId']);
 
 		exit;
-	} elseif ($barcode == "") {
-
-		header('location:' . $_SERVER['PHP_SELF'] . '?msg=up&editId=' . $_REQUEST['editId']);
-
-		exit;
-	} elseif ($idsatuan == "") {
-
-		header('location:' . $_SERVER['PHP_SELF'] . '?msg=up&editId=' . $_REQUEST['editId']);
-
-		exit;
-	} elseif ($id == "") {
-
-		header('location:' . $_SERVER['PHP_SELF'] . '?msg=up&editId=' . $_REQUEST['editId']);
-
-		exit;
-	} elseif ($qty == "") {
+	} elseif ($sutradara == "") {
 
 		header('location:' . $_SERVER['PHP_SELF'] . '?msg=up&editId=' . $_REQUEST['editId']);
 
@@ -55,17 +39,14 @@ if (isset($_REQUEST['submit']) and $_REQUEST['submit'] != "") {
 
 	$data	=	array(
 
-		'barang' => $barang,
-		'jenis' => $jenis,
-		'hargaumum' => $hargaumum,
-		'hargagrosir' => $hargagrosir,
-		'barcode' => $barcode,
-		'idsatuan' => $idsatuan,
-		'id' => $id,
-		'qty' => $qty,
+		'judul' => $judul,
+		'deskripsi' => $deskripsi,
+		'image' => $image,
+		'rilis' => $rilis,
+		'sutradara' => $sutradara,
 	);
 
-	$update	=	$db->update('barang', $data, array('kode_item' => $editId));
+	$update	=	$db->update('content', $data, array('id' => $editId));
 
 	if ($update) {
 
@@ -95,7 +76,7 @@ if (isset($_REQUEST['submit']) and $_REQUEST['submit'] != "") {
 	<meta name="description" content="PHP CRUD with search and pagination in bootstrap 4">
 	<meta name="keywords" content="PHP CRUD, CRUD with search and pagination, bootstrap 4, PHP">
 	<meta name="robots" content="index,follow">
-	<title>Silakan Ubah barang</title>
+	<title>Silakan Ubah film</title>
 	<!-- Menyisipkan CSS -->
 	<link rel="stylesheet" href="../source/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="../source/css/bootstrap.css" />
@@ -107,49 +88,24 @@ if (isset($_REQUEST['submit']) and $_REQUEST['submit'] != "") {
 	<script src="../source/js/bootstrap.min.js"></script>
 	<script rel="stylesheet" src="../source/fontawesome/js/all.min.js"></script>
 	<script rel="stylesheet" src="../source/fontawesome/js/all.js"></script>
-
-
 	<script rel="stylesheet" src="source/fontawesome/js/all.min.js"></script>
-	<!-- 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> -->
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-
-	<!--[if lt IE 9]>
-
-	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-
-	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
-	<![endif]-->
-
 
 </head>
 
-
-
 <body>
-
-
-
-
-
-
 
 	<div class="container">
 		<br>
 
 		<center>
-			<h4>Ubah barang</h4>
+			<h4>Ubah film</h4>
 		</center>
 		<br>
 		<?php
 
 		if (isset($_REQUEST['msg']) and $_REQUEST['msg'] == "un") {
 
-			echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Nama Barang ngga boleh kosong!</div>';
+			echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Nama film ngga boleh kosong!</div>';
 		} elseif (isset($_REQUEST['msg']) and $_REQUEST['msg'] == "ue") {
 
 			echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> User email is mandatory field!</div>';
@@ -168,7 +124,7 @@ if (isset($_REQUEST['submit']) and $_REQUEST['submit'] != "") {
 
 		<div class="card">
 
-			<div class="card-header"><a href="index.php" class="float-right btn btn-dark btn-sm"><i class="fa fa-fw fa-globe"></i> Lihat semua barang</a></div>
+			<div class="card-header"><a href="index.php" class="float-right btn btn-dark btn-sm"><i class="fa fa-fw fa-globe"></i> Lihat semua film</a></div>
 
 			<div class="card-body">
 
@@ -181,70 +137,49 @@ if (isset($_REQUEST['submit']) and $_REQUEST['submit'] != "") {
 
 						<div class="form-group">
 
-							<label>Nama Barang <span class="text-danger">*</span></label>
+							<label>Judul film <span class="text-danger">*</span></label>
 
-							<input type="text" name="barang" id="barang" class="form-control" value="<?php echo isset($row[0]['barang']) ? $row[0]['barang'] : ''; ?>" placeholder="Enter barang name" required>
-
-						</div>
-
-						
-
-						<div class="form-group">
-
-							<label>Satuan <span class="text-danger">*</span></label>
-
-							<input readonly type="text" name="jenis" id="jenis" class="form-control" value="<?php echo isset($row[0]['jenis']) ? $row[0]['jenis'] : ''; ?>" placeholder="Enter jenis name" required>
+							<input type="text" name="judul" id="judul" class="form-control" value="<?php echo isset($row[0]['judul']) ? $row[0]['judul'] : ''; ?>" placeholder="Enter judul name" required>
+							<!-- 
+							<textarea  name="judul" id="judul" rows="4" cols="50"><?php echo isset($row[0]['judul']) ? $row[0]['judul'] : ''; ?></textarea> -->
 
 						</div>
 
-						
+
 
 						<div class="form-group">
 
-							<label>Harga Umum <span class="text-danger">*</span></label>
+							<label>Deskripsi <span class="text-danger">*</span></label>
 
-							<input type="text" name="hargaumum" id="hargaumum" class="form-control" value="<?php echo isset($row[0]['hargaumum']) ? $row[0]['hargaumum'] : ''; ?>" placeholder="Enter hargaumum name" required>
+							<!-- <input type="text" name="deskripsi" id="deskripsi" class="form-control" value="<?php echo isset($row[0]['deskripsi']) ? $row[0]['deskripsi'] : ''; ?>" placeholder="Enter deskripsi name" required> -->
+
+							<textarea class="form-control" name="deskripsi" id="deskripsi" rows="4" cols="50"><?php echo isset($row[0]['deskripsi']) ? $row[0]['deskripsi'] : ''; ?></textarea>
 
 						</div>
 
+
+
 						<div class="form-group">
 
-							<label>Harga Grosir <span class="text-danger">*</span></label>
+							<label>image <span class="text-danger">*</span></label>
 
-							<input type="text" name="hargagrosir" id="hargagrosir" class="form-control" value="<?php echo isset($row[0]['hargagrosir']) ? $row[0]['hargagrosir'] : ''; ?>" placeholder="Enter hargagrosir name" required>
+							<input type="text" name="image" id="image" class="form-control" value="<?php echo isset($row[0]['image']) ? $row[0]['image'] : ''; ?>" placeholder="Enter image name" required>
 
 						</div>
 
 						<div class="form-group">
 
-							<label>Isi Perdus</label>
+							<label>rilis <span class="text-danger">*</span></label>
 
-							<input type="text" name="idsatuan" id="idsatuan" class="form-control" value="<?php echo isset($row[0]['idsatuan']) ? $row[0]['idsatuan'] : ''; ?>" placeholder="Enter idsatuan name" required>
-
-						</div>
-
-						<div class="form-group">
-
-							<label>Abaikan</label>
-
-							<input readonly type="text" name="barcode" id="barcode" class="form-control" value="1<?php echo isset($row[0]['barcode']) ? $row[0]['barcode'] : ''; ?>" placeholder="Enter barcode name" required>
-
-						</div>
-
-
-						<div class="form-group">
-
-							<label>Abaikan</label>
-
-							<input readonly type="text" name="id" id="id" class="form-control" value="<?php echo isset($row[0]['id']) ? $row[0]['id'] : ''; ?>" placeholder="Enter id name" required>
+							<input type="text" name="rilis" id="rilis" class="form-control" value="<?php echo isset($row[0]['rilis']) ? $row[0]['rilis'] : ''; ?>" placeholder="Enter rilis name" required>
 
 						</div>
 
 						<div class="form-group">
 
-							<label>Stok</label>
+							<label>sutradara</label>
 
-							<input readonly type="text" name="qty" id="qty" class="form-control" value="<?php echo isset($row[0]['qty']) ? $row[0]['qty'] : ''; ?>" placeholder="Enter qty name" required>
+							<input type="text" name="sutradara" id="sutradara" class="form-control" value="<?php echo isset($row[0]['sutradara']) ? $row[0]['sutradara'] : ''; ?>" placeholder="Enter sutradara name" required>
 
 						</div>
 
@@ -253,7 +188,7 @@ if (isset($_REQUEST['submit']) and $_REQUEST['submit'] != "") {
 
 							<input type="hidden" name="editId" id="editId" value="<?php echo isset($_REQUEST['editId']) ? $_REQUEST['editId'] : '' ?>">
 
-							<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary"><i class="fa fa-fw fa-edit"></i> Update Barang</button>
+							<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary"><i class="fa fa-fw fa-edit"></i> Update film</button>
 
 						</div>
 
