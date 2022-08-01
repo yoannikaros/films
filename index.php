@@ -20,6 +20,47 @@ if (!isset($_SESSION['username'])) {
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+    <style>
+         button a{
+        color: black;
+        font-weight: 500;
+    }
+    button a:hover{
+        text-decoration: none;
+    }
+    h1{
+        position: absolute;
+        top: 95%;
+        left: 124%; 
+        width: 100%;
+        transform: translate(-50%, -50%);
+        font-size: 25px;
+        font-weight: 600;
+    }
+    .profile button a{
+        color: black;
+    }
+    .profile button{
+        background-color: rgb(168, 228, 28);
+        border: none;
+        margin-top: 2%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18px;
+        cursor: pointer;
+        width: 200px;
+        display: block;
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+    }
+    .profile button:hover{
+        background-color: yellow;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    </style>
 </head>
 
 <body>
@@ -30,12 +71,6 @@ if (!isset($_SESSION['username'])) {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <ul class="navbar-nav ml-auto pt-2 pb-2">
-                <li class="nav-item">
-                    <a href="index.php" class="nav-link text-light">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="crud/index.php" class="nav-link text-light">Crud</a>
-                </li>
                 <li class="nav-item ml-4">
                     <a href="logout.php" class="nav-link text-light"> Log Out </a>
                 </li>
@@ -44,9 +79,11 @@ if (!isset($_SESSION['username'])) {
     </nav>
     <div class="jumbotron jumbotron-fluid bg-light" style="height:90vh">
         <div class="container">
-            <h1 class="display-4 text-center mt-4">DASHBOARD</h1>
-            <p class="lead text-center">LOGIN SUCCESSFULLY ):</p>
+        <div class="profile"> 
+        <a href="crud/index.php"><button style="margin-top: 100px;"> <b>Daftar Film</b> </button></a>
+        <a href="crud/add-users.php"><button > <b>Tambah Film</b> </button></a>
         </div>
+    
     </div>
 
 </body>
