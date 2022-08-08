@@ -67,7 +67,7 @@
                 fill="currentColor"
               />
             </svg>
-            <p>Admin</p>
+            <p>Log In</p>
           </a>
        
        
@@ -116,14 +116,8 @@
         >
           <i class="fa-solid fa-bars"></i>
         </button>
-        
         <nav class="nav-content gap-5">
         
-
-           
-          
-          
-     
         </nav>
       </section>
       
@@ -143,14 +137,7 @@
         <div class="d-flex gap-4 flex-wrap">
        
           <div class="product-card">
-           <center>
-          <img
-              src="<?php echo $data['image'] ?>"
-              alt="Nike Red"
-              width="260"
-              height="180"
-            />
-            </center>
+<?php echo $data['image'] ?>
             <div class="product-detail pt-3">
               <div>
     

@@ -177,9 +177,9 @@ if (isset($_REQUEST['submit']) and $_REQUEST['submit'] != "") {
 
 						<div class="form-group">
 
-							<label>image <span class="text-danger">*</span></label>
+							<label>Link youtube <span class="text-danger">*</span></label>
 
-							<input type="text" name="image" id="image" class="form-control" value="<?php echo isset($row[0]['image']) ? $row[0]['image'] : ''; ?>" placeholder="Enter image name" required>
+							<input type="text" name="image" id="image" class="form-control" value="<?php echo isset($row[0]['image']) ? $row[0]['image'] : ''; ?>" placeholder="Enter Link youtube" required>
 
 						</div>
 

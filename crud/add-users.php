@@ -176,7 +176,7 @@ if (isset($_REQUEST['submit']) and $_REQUEST['submit'] != "") {
 		}
 
 		?>
-
+<br>
 		<div class="card">
 
 
@@ -210,9 +210,9 @@ if (isset($_REQUEST['submit']) and $_REQUEST['submit'] != "") {
 
 						<div class="form-group">
 
-							<label>link image <span class="text-danger">*</span></label>
+							<label>link youtube <span class="text-danger">*</span></label>
 
-							<input type="text" name="image" id="image" class="form-control" placeholder="Masukan link image" required>
+							<input type="text" name="image" id="image" class="form-control" placeholder="Masukan link youtube" required>
 
 						</div>
 

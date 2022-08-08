@@ -82,6 +82,7 @@ if (!isset($_SESSION['username'])) {
         <div class="profile"> 
         <a href="crud/index.php"><button style="margin-top: 100px;"> <b>Daftar Film</b> </button></a>
         <a href="crud/add-users.php"><button > <b>Tambah Film</b> </button></a>
+        <a href="register.php"><button > <b>Tambah Admin</b> </button></a>
         </div>
     
     </div>
